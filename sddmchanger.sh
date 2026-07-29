@@ -1,5 +1,6 @@
 #!/bin/bash
-source test.conf
+#source test.conf
+source /etc/sddm.conf
 num=0
 arr=()
 
@@ -12,5 +13,6 @@ for i in $(echo "$themes"); do
 	((num++))
 done
 read select
-sed -i "s/^Current=.*/Current=${arr[select]}/" test.conf
+#sed -i "s/^Current=.*/Current=${arr[select]}/" test.conf
+sudo sed -i "s/^Current=.*/Current=${arr[select]}/" /etc/sddm.conf
 echo "Theme changed on ${arr[select]}"
