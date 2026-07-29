@@ -11,3 +11,5 @@ for i in $(echo "$themes"); do
 	arr[num]="$i"
 	((num++))
 done
+read select
+echo "${arr[select]}"
