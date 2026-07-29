@@ -1,5 +1,5 @@
 #!/bin/bash
-
+source test.conf
 num=0
 arr=()
 
@@ -12,4 +12,5 @@ for i in $(echo "$themes"); do
 	((num++))
 done
 read select
-echo "${arr[select]}"
+sed -i "s/^Current=.*/Current=${arr[select]}/" test.conf
+echo "Theme changed on ${arr[select]}"
